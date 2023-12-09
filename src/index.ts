@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(cors({
     origin: 'https://www.najashmarron.com'
 }));
-app.use(express.static('public'));
-//app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+//app.use(express.static('public'));
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
 app.use(routes);
 
