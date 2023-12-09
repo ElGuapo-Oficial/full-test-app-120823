@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import routes from './routes/index';
 
 const app = express();
@@ -9,7 +10,8 @@ app.use(express.json());
 app.use(cors({
     origin: 'https://www.najashmarron.com'
 }));
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
 
 app.use(routes);
 
