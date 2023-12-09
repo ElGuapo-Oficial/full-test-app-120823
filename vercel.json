@@ -2,19 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/index.ts",
+      "src": "dist/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/images/(.*)",
-      "dest": "/public/images/$1",
-      "headers": { "cache-control": "public, max-age=0, must-revalidate" }
+      "dest": "/public/images/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "src/index.ts"
+      "dest": "dist/index.js"
     }
   ]
 }
