@@ -2,18 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/index.ts",
-      "use": "@vercel/node"
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": { "distDir": "dist" }
     }
   ],
   "routes": [
     {
       "src": "/images/(.*)",
-      "dest": "/public/images/$1"
+      "dest": "/dist/public/images/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "src/index.ts"
+      "dest": "/dist/index.js"
     }
   ]
 }
