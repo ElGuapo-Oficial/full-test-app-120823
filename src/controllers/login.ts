@@ -7,14 +7,17 @@ const saltRounds = 10;
 const signup = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { email, password } = req.body;
+        console.log("SERVER1: ", email, password);
 
         const userExist = await searchUser(email);
+        console.log("userExist: ", userExist);
         if (userExist) {
             return res.status(409).json({ message: 'User already exists with this email.' });
         }
 
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
+        console.log("SERVER2: ", email, password);
         const user = await insertUser(email, hashedPassword);
         res.json({ message: 'Signup successful', id: user?.id });
 

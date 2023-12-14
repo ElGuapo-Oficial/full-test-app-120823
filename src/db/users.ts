@@ -19,8 +19,8 @@ const insertUser = async (email: string, password: string): Promise<User | null>
 
 const searchUser = async (email: string): Promise<User | null> => {
     try {
+        console.log("searchUser1: ", email);
         const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-        console.log("userResult: ", result.rows[0].email);
 
         if (result.rows.length > 0) {
             const user =  result.rows[0];
