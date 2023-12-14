@@ -1,5 +1,5 @@
 import { PoolClient } from 'pg';
-import pool from '../db/connection'; // Import the pool instance from your pool module
+import pool from '../src/db/connection'; // Import the pool instance from your pool module
 
 async function createTableIfNotExists() {
     const client: PoolClient = await pool.connect();
@@ -20,8 +20,8 @@ async function createTableIfNotExists() {
         await client.query(`
           CREATE TABLE users (
             id serial PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            age INT
+            email VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL
           );
         `);
         console.log('Table created successfully');
