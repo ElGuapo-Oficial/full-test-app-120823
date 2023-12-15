@@ -3,7 +3,6 @@ import * as dotenv from 'dotenv';
 import { resolve } from 'path';
 
 dotenv.config({ path:resolve(__dirname, '../../.env') });
-console.log(process.env.DATABASE_URL);
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
