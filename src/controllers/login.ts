@@ -32,7 +32,6 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
         const { email, password } = req.body;
 
         const userExist = await searchUser(email);
-        console.log("userExist: ", userExist);
         if (userExist) {
             return res.status(409).json({ message: 'User already exists with this email.' });
         }
