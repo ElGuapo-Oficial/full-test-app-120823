@@ -12,6 +12,10 @@
       "dest": "/public/images/$1"
     },
     {
+      "src": "/(.+\\.(pdf|jpg|jpeg|png))$",
+      "dest": "/public/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/src/index.ts"
     }
