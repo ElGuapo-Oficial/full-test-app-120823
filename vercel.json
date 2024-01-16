@@ -12,8 +12,8 @@
       "dest": "/public/images/$1"
     },
     {
-      "src": "/(.+\\.(pdf|jpg|jpeg|png))$",
-      "dest": "/public/$1"
+      "src": "/downloads/(.*)",
+      "dest": "/public/downloads/$1"
     },
     {
       "src": "/(.*)",
